@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -37,6 +38,14 @@ module.exports = {
             devMode: 'webapp',
 
         }),
+        new CopyPlugin({
+            patterns: [
+                {from: "resources", to: "resources"},
+            ],
+            options: {
+                concurrency: 100,
+            },
+        }),
         new HtmlWebpackPlugin({
             title: 'PWA Template',
             template: "./src/index.html",
@@ -59,6 +68,13 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
         ],
     },
     resolve: {

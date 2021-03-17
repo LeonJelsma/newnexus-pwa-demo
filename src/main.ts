@@ -1,3 +1,13 @@
+import {Engine} from "./engine"
+import {TestStage} from "./stages/teststage";
+import './style.css';
+
+const engine = Engine.getInstance()
+
+function animate(): void {
+    requestAnimationFrame(animate);
+    engine.render();
+}
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -8,7 +18,7 @@ if ('serviceWorker' in navigator) {
                     switch (installingWorker.state) {
                         case 'installed':
                             if (navigator.serviceWorker.controller) {
-                                // new update available
+                                // update available
                             } else {
                                 // no update available
                             }
@@ -21,4 +31,6 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+engine.load_stage(new TestStage())
+animate()
 
