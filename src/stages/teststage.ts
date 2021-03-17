@@ -62,20 +62,20 @@ export class TestStage implements Stage{
 
         const horizontalSpinButton = document.getElementById("horizontal-spin")
         horizontalSpinButton.addEventListener("click", (e:Event) => {
-            if (this.xModifier != 0) {
-                this.xModifier = 0;
+            if (this.yModifier != 0) {
+                this.yModifier = 0;
             } else {
-                this.xModifier = 0.01;
+                this.yModifier = 0.01;
             }
         });
 
 
         const verticalSpinButton = document.getElementById("vertical-spin")
         verticalSpinButton.addEventListener("click", (e:Event) => {
-            if (this.yModifier != 0) {
-                this.yModifier = 0;
+            if (this.xModifier != 0) {
+                this.xModifier = 0;
             } else {
-                this.yModifier = 0.01;
+                this.xModifier = 0.01;
             }
         });
 
