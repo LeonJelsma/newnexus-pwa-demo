@@ -25,26 +25,15 @@ export class TestStage implements Stage{
         this.lights = [];
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
         if (isMobile()){
-            this.controls = new DeviceOrientationControls( this.camera );
-            this.controls.connect();
-            this.controls.pan = false;
-            this.controls.enableDam = true;
-            this.controls.enableZoom = false;
             this.camera.position.x = 0;
             this.camera.position.y = 0;
             this.camera.position.z = 45;
         } else {
-            this.controls = new OrbitControls(this.camera, engine.renderer.domElement);
-            this.controls.target.set(0, 0, 0);
-            this.controls.pan = false;
-            this.controls.enableDam = true;
-            this.controls.enableZoom = false;
             this.camera.position.x = 0;
             this.camera.position.y = 0;
             this.camera.position.z = 15;
         }
 
-        this.controls.update();
         const light = new THREE.DirectionalLight(0xffffff, 1.0);
         const light2 = new THREE.DirectionalLight(0xffffff, 1.0);
 
@@ -71,32 +60,29 @@ export class TestStage implements Stage{
 
         this.camera.lookAt(0,0,0);
 
-        const resetCamButton = document.getElementById("reset-cam")
-        resetCamButton.addEventListener("click", (e:Event) => {
-            scope.camera.lookAt(Engine.getInstance().scene.position);
-            scope.camera.position.x = 0;
-            scope.camera.position.y = 0;
-            scope.camera.position.z = 15;
-        });
-
         const horizontalSpinButton = document.getElementById("horizontal-spin")
         horizontalSpinButton.addEventListener("click", (e:Event) => {
-            console.log("klik")
             if (this.xModifier != 0) {
-                this.xModifier = 0.01;
-            } else {
                 this.xModifier = 0;
+            } else {
+                this.xModifier = 0.01;
             }
         });
+
 
         const verticalSpinButton = document.getElementById("vertical-spin")
         verticalSpinButton.addEventListener("click", (e:Event) => {
-            console.log("klik")
             if (this.yModifier != 0) {
-                this.yModifier = 0.01;
-            } else {
                 this.yModifier = 0;
+            } else {
+                this.yModifier = 0.01;
             }
+        });
+
+        const resetButton = document.getElementById("reset-model")
+        resetButton.addEventListener("click", (e:Event) => {
+            this.logo.scene.rotation.x = 0;
+            this.logo.scene.rotation.y = 0;
         });
 
 
@@ -138,9 +124,6 @@ export class TestStage implements Stage{
     }
 
     tick(): void {
-        if (isMobile()) {
-            this.controls.update();
-        }
         if (this.logo) {
             this.logo.scene.rotation.x += this.xModifier;
             this.logo.scene.rotation.y += this.yModifier;
