@@ -16,8 +16,8 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new WebpackPwaManifest({
-            name: "PWA Template",
-            short_name: "PWA",
+            name: "New Nexus PWA Demo",
+            short_name: "Demo",
             start_url: "./index.html",
             display: "standalone",
             background_color: "#2d2c2c",

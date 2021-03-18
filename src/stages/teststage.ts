@@ -1,12 +1,10 @@
 import {Stage} from "../stage";
-import {Camera, Light, Object3D, PerspectiveCamera} from "three";
+import {Light, Object3D, PerspectiveCamera} from "three";
 import * as THREE from "three";
 import {TestShader} from "../shaders";
 import {Engine} from "../engine";
 import isMobile from "is-mobile";
-import {DeviceOrientationControls} from "three/examples/jsm/controls/DeviceOrientationControls";
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import {GLTF, GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {GLTF} from "three/examples/jsm/loaders/GLTFLoader";
 
 export class TestStage implements Stage{
     camera: PerspectiveCamera;
