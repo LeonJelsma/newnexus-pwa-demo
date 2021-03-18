@@ -1,4 +1,4 @@
-<h1>Eenvoudige PWA Demo voor New Nexus</h1>
+<h1>PWA Demo</h1>
 
 <h2>Gebruik:</h2>
 
