@@ -1,0 +1,17 @@
+{
+  "icons": [
+    {
+      "src": "auto/icon_2048x2048.3bd55d4ab776d71aea7ebc203a670ae4.svg",
+      "sizes": "2048x2048",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "name": "New Nexus PWA Demo",
+  "short_name": "Demo",
+  "orientation": "portrait-primary",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "background_color": "#2d2c2c",
+  "theme_color": "#0a8305"
+}
