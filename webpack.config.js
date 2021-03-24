@@ -47,7 +47,7 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
-            title: 'PWA Template',
+            title: 'PWA Demo',
             template: "./src/index.html",
             meta: {
                 viewport: 'width=device-width, initial-scale=1'
